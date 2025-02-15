@@ -14,22 +14,22 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Event> findAll() {
         return eventService.listAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/search/{id}")
     public Event findById(Long id) {
         return eventService.findById(id);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public Event createEvent(@RequestBody Event event) {
         return eventService.saveEvent(event);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteEvent(@PathVariable Long id) {
         eventService.deleteEvent(id);
     }
